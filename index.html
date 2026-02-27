@@ -46,12 +46,19 @@
     <button onclick="toggleAgotado()">Mostrar/Ocultar AGOTADO BTS</button>
 
     <script>
+        // Al cargar la página, revisamos si estaba oculto antes (opcional)
+        if (localStorage.getItem('agotadoQuitado') === 'true') {
+            document.getElementById('agotado').style.display = 'none';
+        }
+
         function toggleAgotado() {
             var elem = document.getElementById('agotado');
             if (elem.style.display === 'none') {
-                elem.style.display = 'block'; // Lo mostramos
+                elem.style.display = 'block';
+                localStorage.setItem('agotadoQuitado', 'false');
             } else {
-                elem.style.display = 'none'; // Lo ocultamos
+                elem.style.display = 'none';
+                localStorage.setItem('agotadoQuitado', 'true');
             }
         }
     </script>
