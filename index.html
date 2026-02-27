@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle AGOTADO BTS</title>
+    <title>Toggle AGOTADO BTS Automático</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@
     <button onclick="toggleAgotado()">Mostrar/Ocultar AGOTADO BTS</button>
 
     <script>
-        // Al cargar la página, revisamos si estaba oculto antes (opcional)
+        // Inicializamos el estado desde localStorage
         if (localStorage.getItem('agotadoQuitado') === 'true') {
             document.getElementById('agotado').style.display = 'none';
         }
@@ -61,6 +61,9 @@
                 localStorage.setItem('agotadoQuitado', 'true');
             }
         }
+
+        // Hacemos toggle automáticamente cada 5 segundos
+        setInterval(toggleAgotado, 5000); // 5000 ms = 5 segundos
     </script>
 </body>
 </html>
